@@ -1,0 +1,65 @@
+{% extends 'fsAdminIndex.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+
+<div style="height: 400px; overflow-y: auto;">
+    <table class="table table-hover table-info ult table-striped-columns">
+        <thead>
+        <tr>
+            <th><b>EquipmentID</b></th>
+            <th><b>EquipmentName</b></th>
+            <th><b>Equipment_Type</b></th>
+            <th><b>Equipment_Model</b></th>
+            <th><b>Purchase_Date</b></th>
+            <th><b>Last_Maintenance_Date</b></th>
+            <th><b>Next_Maintenance_Due</b></th>
+            <th><b>Maintenance_Status</b></th>
+            <th><b>Vehicle_number</b></th>
+            <th><b>Vehicle_Name</b></th>
+            <th><b>Vehicle_Type</b></th>
+            <th><b>Purpose</b></th>
+            <th><b>vehicle_condition</b></th>
+            <th><b>Action</b></th>
+            <th><b>Action</b></th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in data %}
+        <tr>
+            <td>{{i.EquipmentID}}</td>
+            <td>{{ i.EquipmentName }}</td>
+            <td>{{ i.Equipment_Type }}</td>
+            <td>{{ i.Equipment_Model }}</td>
+            <td>{{ i.Purchase_Date }}</td>
+            <td>{{ i.Last_Maintenance_Date }}</td>
+            <td>{{ i.Next_Maintenance_Due }}</td>
+            <td>{{ i.Maintenance_Status}}</td>
+            <td>{{ i.Vehicle_number }}</td>
+            <td>{{ i.Vehicle_Name }}</td>
+            <td>{{ i.Vehicle_Type }}</td>
+            <td>{{ i.Purpose }}</td>
+            <td>{{ i.vehicle_condition }}</td>
+               <td>
+                <a href="{% url 'delete_resources' i.id %}">Delete</a>
+            </td>
+            <td>
+                <a href="{% url 'update_resources' i.id %}">Update</a>
+
+            </td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

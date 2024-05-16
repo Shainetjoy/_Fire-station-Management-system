@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Spica Emp</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="{% static 'Guest/vendors/mdi/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Guest/vendors/css/vendor.bundle.base.css' %}">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'Guest/css/style.css' %}">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{% static 'Guest/images/favicon.png' %}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="container-scroller d-flex">
+    <!-- partial:./partials/_sidebar.html -->
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+            <!--        <li class="nav-item sidebar-category">-->
+            <!--          <p>Navigation</p>-->
+            <!--          <span></span>-->
+            <!--        </li>--><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <!--               <span class="menu-title">Dashboard</span>-->
+
+                </a>
+            </li>
+            <li class="nav-item sidebar-category">
+                <b><p>Components</p></b>
+                <span></span>
+            </li>
+            /
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'EmpviewIncident' %}">
+                    <i class="mdi mdi-chart-pie menu-icon"></i>
+                    <span class="menu-title">All Incidents</span>
+                </a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="{% url 'EmpviewEvents' %}">
+                    <i class="mdi mdi-chart-pie menu-icon"></i>
+                    <span class="menu-title">Resource allocation </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'log_out' %}">
+                    <i class="mdi mdi-chart-pie menu-icon"></i>
+                    <span class="menu-title">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:./partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 px-0 py-0 py-lg-4 d-flex flex-row">
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                    <span class="mdi mdi-menu"></span>
+                </button>
+                <!--          <div class="navbar-brand-wrapper">-->
+                <!--            <a class="navbar-brand brand-logo" href="index.html"><img src="{% static 'Guest/images/logo.svg' %}" alt="logo"/></a>-->
+                <!--            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static 'Guest/images/logo-mini.svg' %}" alt="logo"/></a>-->
+                <!--          </div>-->
+                <h2 class="font-weight-bold mb-0 d-none d-md-block mt-1">Welcome {{Emp_name}}</h2>
+                <ul class="navbar-nav navbar-nav-right">
+                    <li class="nav-item">
+                        <!--              <h4 class="mb-0 font-weight-bold d-none d-xl-block">Mar 12, 2019 - Apr 10, 2019</h4>-->
+                    </li>
+                </ul>
+            </div>
+            <!--        -->
+        </nav>
+        <!-- partial -->
+        {% block content %}
+        {% endblock %}
+
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+<!-- container-scroller -->
+
+<!-- base:js -->
+<script src="{% static 'Guest/vendors/js/vendor.bundle.base' %}.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page-->
+<script src="{% static 'Guest/vendors/chart.js/Chart.min.js' %}"></script>
+<!-- End plugin js for this page-->
+<!-- inject:js -->
+<script src="{% static 'Guest/js/off-canvas.js' %}"></script>
+<script src="{% static 'Guest/js/hoverable-collapse.js' %}"></script>
+<script src="{% static 'Guest/js/template.js' %}"></script>
+<!-- endinject -->
+<!-- plugin js for this page -->
+<!-- End plugin js for this page -->
+<!-- Custom js for this page-->
+<script src="{% static 'Guest/js/dashboard.js' %}"></script>
+<!-- End custom js for this page-->
+</body>
+
+</html>

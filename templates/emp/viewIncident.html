@@ -1,0 +1,40 @@
+{% extends 'fsEmplIndex.html' %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<div style="max-height: 400px; overflow-y: auto;">
+    <table class="table table-hover table-info ult table-striped-columns" >
+        <thead>
+            <tr>
+              <th>Name</th>
+                <th>Type of Incident</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Names of Responding </th>
+                <th>Responsibilities</th>
+                <th>Images</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for i in allIncident %}
+            <tr>
+                <td>{{ i.Incident_Name }}</td>
+                <td>{{ i.Incident_Type }}</td>
+                <td>{{ i.Incident_Location }}</td>
+                <td>{{ i.Date_and_Time_of_Incident }}</td>
+                <td>{{ i.Names_and_IDsof_Responding_Personnel }}</td>
+                <td>{{ i.Roles_and_Responsibilities_Assigned }}</td>
+                <td><img src="{{ i.images.url }}" height="100px"></td>
+                <td><a href="{% url 'deleteIncident' i.id %}">Delete</a></td>
+                <td><a href="{% url 'updateIncident' i.id %}">Update</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+{% endblock %}

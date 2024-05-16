@@ -1,0 +1,45 @@
+{% extends 'fsAdminIndex.html' %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+<div style="max-height: 400px; overflow-y: auto;">
+    <table class="table table-hover table-info ult table-striped-columns">
+        <thead>
+            <tr>
+                <th><b>Name</b></th>
+                <th><b>Type of Incident</b></th>
+                <th><b>Location</b></th>
+                <th><b>Date</b></th>
+                <th><b>Weather</b></th>
+                <th><b>Names of Responding Personnel</b></th>
+                <th><b>Responsibilities</b></th>
+                <th><b>Affected Individuals</b></th>
+                <th><b>Equipment</b></th>
+                <th><b>Images</b></th>
+                <th><b>Action</b></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in allIncident %}
+            <tr>
+                <td>{{ i.Incident_Name }}</td>
+                <td>{{ i.Incident_Type }}</td>
+                <td>{{ i.Incident_Location }}</td>
+                <td>{{ i.Date_and_Time_of_Incident }}</td>
+                <td>{{ i.Weather_Conditions }}</td>
+                <td>{{ i.Names_and_IDsof_Responding_Personnel }}</td>
+                <td>{{ i.Roles_and_Responsibilities_Assigned }}</td>
+                <td>{{ i.Injured_or_Affected_Individuals }}</td>
+                <td>{{ i.Equipment_Used }}</td>
+                <td><img src="{{ i.images.url }}" alt="{{ i.images.url }}"></td>
+                <td><a href="{% url 'deleteIncident' i.id %}">Delete</a></td>
+                <td><a href="{% url 'updateIncident' i.id %}">Update</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

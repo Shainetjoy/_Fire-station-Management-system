@@ -1,0 +1,61 @@
+{% extends 'fsAdminIndex.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card text-center">
+    <div class="card-header">
+        <form method="POST">
+            {% csrf_token %}
+
+            <!-- Dropdown for Equipment Names -->
+            <label><b>Personal Resource</b></label>
+            <select name="Personal_Resource" class="form-control form-control-lg">
+                {% for name in personResourceList %}
+                <option value="{{ name }}">{{ name }}</option>
+                {% endfor %}
+            </select>
+
+            <br><br>
+
+
+            <!-- Dropdown for Equipment Names -->
+            <label><b>Select Equipment</b></label>
+            <select name="equipment_name" class="form-control form-control-lg">
+                {% for name in equipment_names %}
+                <option value="{{ name }}">{{ name }}</option>
+                {% endfor %}
+            </select>
+
+            <br><br>
+
+            <!-- Dropdown for Vehicle Numbers -->
+            <label><b>Select Vehicle Name</b></label>
+            <select name="vehicle_name" class="form-control form-control-lg">
+                {% for number in vehicle_name %}
+                <option value="{{ number }}">{{ number }}</option>
+                {% endfor %}
+            </select>
+
+            <br>
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary">Allocate</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <button type="submit">Allocate</button>-->
+<!--</form>-->
+
+<!--{% if form.errors %}-->
+<!--    <div class="alert alert-danger">-->
+<!--        <strong>Error:</strong> Please correct the errors below.-->
+<!--        <ul>-->
+<!--            {% for field, error in form.errors.items %}-->
+<!--                <li>{{ field }}: {{ error }}</li>-->
+<!--            {% endfor %}-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--{% endif %}-->

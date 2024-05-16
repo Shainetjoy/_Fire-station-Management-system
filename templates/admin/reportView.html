@@ -1,0 +1,31 @@
+{% extends 'fsAdminIndex.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+{% for i in IncidentReport %}
+<div class="card text-center">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+        <h2 class="card-title"><b>Incident Name: </b> {{ i.Incident_Name }}</h2>
+        <p class="card-text"><b>Date_and_Time_of_Incident: </b> {{i.Date_and_Time_of_Incident}}</p>
+        <p class="card-text"><b>Type of Incident: </b> {{ i.Incident_Type }}</p>
+        <p class="card-text"><b>Incident_Location: </b> {{ i.Incident_Location }}</p>
+        <p class="card-text"><b>Names_and_IDsof_Responding_Personnel: </b> {{ i.Names_and_IDsof_Responding_Personnel }}
+        </p>
+        <p class="card-text"><b>Roles_and_Responsibilities_Assigned: </b> {{ i.Roles_and_Responsibilities_Assigned }}</p>
+        <p class="card-text"><b>Injured_or_Affected_Individuals: </b>{{ i.Injured_or_Affected_Individuals }}</p>
+        <p class="card-text"><b>Equipment_Used: </b> {{ i.Equipment_Used }}</p>
+        <p class="card-text"><img src="{{ i.images.url }}" alt="{{ i.images.url }}"></p>
+
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+<br>
+<br>
+{% endfor %}
+{% endblock %}

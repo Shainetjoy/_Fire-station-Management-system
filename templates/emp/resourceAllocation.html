@@ -1,0 +1,10 @@
+{% extends 'fsEmplIndex.html' %}
+{% block content %}
+{% for i in data1 %}
+{{i.Equipment_Model}}
+{% endfor %}
+
+{% for i in data2 %}
+{{i.Name}}
+{% endfor %}
+{% endblock %}
